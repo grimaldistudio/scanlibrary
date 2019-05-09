@@ -96,8 +96,7 @@ public class ScanFragment extends Fragment {
 
     private void setBitmap(Bitmap original) {
         Bitmap scaledBitmap = scaledBitmap(original, sourceFrame.getWidth(), sourceFrame.getHeight());
-        /* sourceImageView.setImageBitmap(scaledBitmap); */
-        sourceImageView.setImageBitmap(Bitmap.createScaledBitmap(scaledBitmap,120,120, false));
+        sourceImageView.setImageBitmap(scaledBitmap);        
         Bitmap tempBitmap = ((BitmapDrawable) sourceImageView.getDrawable()).getBitmap();
         Map<Integer, PointF> pointFs = getEdgePoints(tempBitmap);
         polygonView.setPoints(pointFs);
