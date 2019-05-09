@@ -19,8 +19,29 @@ public class Utils {
 
     public static Uri getUri(Context context, Bitmap bitmap) {
         ByteArrayOutputStream bytes = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, bytes);       
-        bitmap = Bitmap.createScaledBitmap(bitmap,300,480, false);
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, bytes);   
+
+        int width = bitmap.getWidth();
+        int height = bitmap.getHeight();
+
+        if (width > height) {
+            // landscape
+            float ratio = (float) width / 1900;
+            width = maxWidth;
+            height = (int)(height / ratio);
+        } else if (height > width) {
+            // portrait
+            float ratio = (float) height / 1200;
+            height = maxHeight;
+            width = (int)(width / ratio);
+        } else {
+            // square
+            height = maxHeight;
+            width = maxWidth;
+        }
+
+    
+        bitmap = Bitmap.createScaledBitmap(bitmap,width,height, false);
         String path = MediaStore.Images.Media.insertImage(context.getContentResolver(), bitmap, "Title", null);
         return Uri.parse(path);
     }
