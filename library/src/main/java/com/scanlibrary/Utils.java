@@ -26,18 +26,18 @@ public class Utils {
 
         if (width > height) {
             // landscape
-            float ratio = (float) width / 1900;
-            width = 1900;
+            float ratio = (float) width / 1440;
+            width = 1440;
             height = (int)(height / ratio);
         } else if (height > width) {
             // portrait
-            float ratio = (float) height / 1200;
-            height = 1200;
+            float ratio = (float) height / 2960;
+            height = 2960;
             width = (int)(width / ratio);
         } else {
             // square
-            height = 1200;
-            width = 1900;
+            height = 2960;
+            width = 1440;
         }
 
     
