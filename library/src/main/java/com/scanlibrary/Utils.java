@@ -24,6 +24,7 @@ public class Utils {
         int width = bitmap.getWidth();
         int height = bitmap.getHeight();
 
+        /*
         if (width > height) {
             // landscape
             float ratio = (float) width / 1440;
@@ -39,7 +40,7 @@ public class Utils {
             height = 2960;
             width = 1440;
         }
-
+        */
     
         bitmap = Bitmap.createScaledBitmap(bitmap,width,height, false);
         String path = MediaStore.Images.Media.insertImage(context.getContentResolver(), bitmap, "Title", null);
